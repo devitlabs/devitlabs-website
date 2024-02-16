@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./assets/logo.png";
+import { useState } from "react";
+import { Box, Button, HStack, Image, Link } from "@chakra-ui/react";
+
+function CustomLink({ tilte, fontSize }) {
+  return (
+    <Link
+      _hover={{ color: "orange.500" }}
+      color={activeLink}
+      fontSize={fontSize}
+    >
+      {tilte}
+    </Link>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box margin="20px" height="60px">
+      <HStack justifyContent="space-between">
+        <Image src={logo} alt="Dan Abramov" height="60px" />
+        <HStack spacing={5}>
+          <CustomLink tilte="Accueil" fontSize="20px" />
+        </HStack>
+        <Button colorScheme="orange">Git In Touch</Button>
+      </HStack>
+    </Box>
   );
 }
 
